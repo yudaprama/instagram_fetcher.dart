@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fetch.dart';
-import 'package:raisedbuttonwithloader/raisedbuttonwithloader.dart';
-import 'package:divider/divider.dart';
+import 'package:widgets/raisedbuttonwithloader.dart';
+import 'package:widgets/divider.dart';
 
 RegExp _spaces = RegExp(r"\s+\b|\b\s");
 

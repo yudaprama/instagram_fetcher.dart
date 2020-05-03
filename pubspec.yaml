@@ -11,12 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: any
-  raisedbuttonwithloader:
-    git:
-      url: git://github.com/yudaprama/raised_button_with_loader
-  divider:
-    git:
-      url: git://github.com/yudaprama/divider.dart
+  widgets: any
 
 dev_dependencies:
   flutter_test:
