@@ -28,23 +28,13 @@ class InstagramFetcher {
     }
   }
 
-  Future<Map<String, List<String>>> getInstagramPhoto(String username) async {
-    List<String> picFull = [];
-    List<String> picRegular = [];
-    List<String> picSmall = [];
+  Future<List<String>> getInstagramPhoto(String username) async {
     var u = await getInstagramData(username);
-    if (u.edgeOwnerToTimelineMedia != null &&
-        u.edgeOwnerToTimelineMedia.edges.length > 0) {
-      u.edgeOwnerToTimelineMedia.edges.forEach((EdgeFelixVideoTimelineEdge e) {
-        picFull.add("https://www.instagram.com/p/${e.node.shortcode}/media/?size=l");
-        picRegular.add("https://www.instagram.com/p/${e.node.shortcode}/media/?size=m");
-        picSmall.add("https://www.instagram.com/p/${e.node.shortcode}/media/?size=t");
-      });
+    if (u.edgeOwnerToTimelineMedia != null && u.edgeOwnerToTimelineMedia.edges.length > 0) {
+      return u.edgeOwnerToTimelineMedia.edges.map((EdgeFelixVideoTimelineEdge e) {
+        return e.node.shortcode;
+      }).toList();
     }
-    return {
-      "thumbnail": picSmall,
-      "medium": picRegular,
-      "large": picFull,
-    };
+    return [];
   }
 }
