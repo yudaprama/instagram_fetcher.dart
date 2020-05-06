@@ -29,7 +29,10 @@ class PhotoGridState extends State<PhotoGrid> {
           Positioned.fill(
             child: FadeInImage(
               image: NetworkImage("https://www.instagram.com/p/$photo/media/?size=m"),
-              placeholder: AssetImage('assets/loading.gif'),
+              placeholder: AssetImage(
+                'assets/loading.gif',
+                package: 'instagramfetcher',
+              ),
               fit: BoxFit.cover,
             ),
           ),
